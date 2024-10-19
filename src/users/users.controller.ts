@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Body,
@@ -6,6 +7,7 @@ import {
   Get,
   Param,
   Patch,
+  Post,
   Query,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
@@ -26,10 +28,15 @@ export class UsersController {
     return this.usersService.findOne(+id);
   }
 
+  @Post()
+  create(@Body() user: {name:string,email:string,role: 'INTERN' | 'ENGINEER' | 'ADMIN'}){
+    return user
+  }
+
   @Patch(':id')
-  update(@Param('id') id: string, @Body() userUpdate: object) {
+  update(@Param('id') id: string, @Body() userUpdate: {name:string,email:string,role: 'INTERN' | 'ENGINEER' | 'ADMIN'}) {
     // eslint-disable-next-line prettier/prettier
-    return { id, ...userUpdate }
+    return this.usersService.update(+id,userUpdate)
   }
 
   @Delete(':id')

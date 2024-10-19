@@ -24,13 +24,13 @@ export class UsersService {
       role: 'INTERN',
     },
     {
-      id: 2,
+      id: 4,
       name: 'john',
       email: 'john@k.com',
       role: 'ENGINEER',
     },
     {
-      id: 3,
+      id: 5,
       name: 'john',
       email: 'john@k.com',
       role: 'ADMIN',
@@ -50,7 +50,7 @@ export class UsersService {
   }
 
   create(user:{name:string,email:string,role: 'INTERN' | 'ENGINEER' | 'ADMIN'}){
-    const userByHighestID = [...this.users.sort((a,b)=>b.id -a.id)]
+    const userByHighestID = [...this.users.sort((a,b)=>b.id - a.id)]
 
     const newUser = {
         id:userByHighestID[0].id +1,
