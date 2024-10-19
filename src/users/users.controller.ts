@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Body,
   Controller,
@@ -11,8 +12,9 @@ import {
 @Controller('users')
 export class UsersController {
   @Get() //get /users
+  // eslint-disable-next-line prettier/prettier
   findAll(@Query('role') role?:'INTERN' | 'ENGINEER' | 'ADMIN') {
-    return {role };
+    return [];
   }
 
   @Get(':id')
@@ -20,13 +22,9 @@ export class UsersController {
     return { id };
   }
 
-//   @Post()
-//   create(@Body() user: object) {
-//     return user;
-//   }
-
   @Patch(':id')
   update(@Param('id') id: string, @Body() userUpdate: object) {
+    // eslint-disable-next-line prettier/prettier
     return { id, ...userUpdate }
   }
 
