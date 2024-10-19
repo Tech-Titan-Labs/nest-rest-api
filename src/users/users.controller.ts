@@ -30,7 +30,9 @@ export class UsersController {
 
   @Post()
   create(@Body() user: {name:string,email:string,role: 'INTERN' | 'ENGINEER' | 'ADMIN'}){
-    return user
+     this.usersService.create(user)
+     return this.findAll()
+     
   }
 
   @Patch(':id')
