@@ -8,18 +8,22 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
+  // eslint-disable-next-line prettier/prettier
+
+  constructor(private readonly usersService: UsersService) {}
   @Get() //get /users
   // eslint-disable-next-line prettier/prettier
   findAll(@Query('role') role?:'INTERN' | 'ENGINEER' | 'ADMIN') {
-    return [];
+    return this.usersService.findAll(role);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return { id };
+    return this.usersService.findOne(+id);
   }
 
   @Patch(':id')
@@ -30,6 +34,6 @@ export class UsersController {
 
   @Delete(':id')
   delete(@Param('id') id: string) {
-    return { id };
+    return this.usersService.delete(+id);
   }
 }
