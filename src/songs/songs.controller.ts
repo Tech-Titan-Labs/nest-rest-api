@@ -13,7 +13,7 @@ export class SongsController {
     @Get()
     findAll(){
         return this.songsServices.findAll()
-        return 'find all songs endpoint';
+        // return 'find all songs endpoint';
     }
 
     @Get(":id")
