@@ -1,12 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { SongsService } from './songs.service';
+import { CreateSongDTO } from './dto/create-song0dto';
 
 @Controller('songs')
 export class SongsController {
     constructor(private songsServices :SongsService){}
     @Post()
-    create(){
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    create(@Body() createSongDTO: CreateSongDTO){
         return this.songsServices.create('animals by martin')
         // return 'create a new songs endpoint';
     }
