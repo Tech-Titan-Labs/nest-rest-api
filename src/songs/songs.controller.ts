@@ -1,8 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Delete, Get, Put } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
 
 @Controller('songs')
 export class SongsController {
+
+    @Post()
+    create(){
+        return 'create a new songs endpoint';
+    }
     @Get()
     findAll(){
         return 'find all songs endpoint';
@@ -23,3 +28,4 @@ export class SongsController {
         return 'delete based on id'
     }
 }
+ 
