@@ -7,10 +7,13 @@ export class SongsService {
     private readonly songs=[];
 
     create(song){
+
+        // save song to database
         this.songs.push(song)
     }
 
     findAll(){
+        // fetch song from db
         return this.songs
     }
 }
