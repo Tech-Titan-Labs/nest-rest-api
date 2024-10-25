@@ -9,7 +9,7 @@ export class SongsController {
     @Post()
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     create(@Body() createSongDTO: CreateSongDTO){
-        return this.songsServices.create('animals by martin')
+        return this.songsServices.create(createSongDTO)
         // return 'create a new songs endpoint';
     }
     @Get()
