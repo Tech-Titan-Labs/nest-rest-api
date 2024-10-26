@@ -10,6 +10,8 @@ export class SongsService {
 
         // save song to database
         this.songs.push(song)
+
+        return this.songs;
     }
 
     findAll(){
