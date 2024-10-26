@@ -14,8 +14,15 @@ export class SongsController {
     }
     @Get()
     findAll(){
-        return this.songsServices.findAll()
+      
         // return 'find all songs endpoint';
+        try{
+            return this.songsServices.findAll()
+           }
+        catch(err){
+            return "am in the catch block "
+        }
+
     }
 
     @Get(":id")
