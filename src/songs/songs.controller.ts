@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song0dto';
 
@@ -20,13 +20,15 @@ export class SongsController {
             return this.songsServices.findAll()
            }
         catch(err){
+            throw new HttpException('server error',HttpStatus.INTERNAL_SERVER_ERROR,{cause:err})
             return "am in the catch block "
         }
 
     }
 
     @Get(":id")
-    findOne(){
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    findOne(@Param('id',new ParseIntPipe({errorHttpStatusCode:HttpStatus.NOT_ACCEPTABLE})) id:number){
         return "fetch song based on Id";
     }
 
