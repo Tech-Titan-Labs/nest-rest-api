@@ -20,8 +20,11 @@ export class SongsController {
             return this.songsServices.findAll()
            }
         catch(err){
+             // console.log("am in the catch block");
             throw new HttpException('server error',HttpStatus.INTERNAL_SERVER_ERROR,{cause:err})
             return "am in the catch block "
+           
+            
         }
 
     }
