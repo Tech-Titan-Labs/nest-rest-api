@@ -7,15 +7,15 @@ import { CreateSongDTO } from './dto/create-song0dto';
 export class SongsController {
     constructor(private songsServices :SongsService){}
     @Post()
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
     create(@Body() createSongDTO: CreateSongDTO){
         return this.songsServices.create(createSongDTO)
-        // return 'create a new songs endpoint';
+
     }
+    
     @Get()
     findAll(){
       
-        // return 'find all songs endpoint';
         try{
             return this.songsServices.findAll()
            }
