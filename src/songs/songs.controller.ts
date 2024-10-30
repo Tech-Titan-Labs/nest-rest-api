@@ -32,7 +32,7 @@ export class SongsController {
     @Get(":id")
     // eslint-disable-next-line @typescript-eslint/no-unused-vars 
     findOne(@Param('id',new ParseIntPipe({errorHttpStatusCode:HttpStatus.NOT_ACCEPTABLE}))id:number){
-        return "fetch song based on Id";
+        return `the id is ${id}`;
     }
 
     @Put(':id')
