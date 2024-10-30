@@ -16,9 +16,9 @@ import { SongsController } from './songs/songs.controller';
 // eslint-disable-next-line prettier/prettier
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
-    // consumer.apply(LoggerMiddleware).forRoutes("songs");
+    consumer.apply(LoggerMiddleware).forRoutes("songs");
     // consumer.apply(LoggerMiddleware).forRoutes({path:'songs',method:RequestMethod.POST})
-    consumer.apply(LoggerMiddleware).forRoutes(SongsController)
+    // consumer.apply(LoggerMiddleware).forRoutes(SongsController)
 
   }
 }
