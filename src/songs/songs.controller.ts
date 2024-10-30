@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { SongsService } from './songs.service';
-import { CreateSongDTO } from './dto/create-song0dto';
+import { CreateSongDTO } from './dto/create-song-dto';
 
 @Controller('songs')
 export class SongsController {
@@ -12,7 +12,7 @@ export class SongsController {
         return this.songsServices.create(createSongDTO)
 
     }
-    
+
     @Get()
     findAll(){
       
